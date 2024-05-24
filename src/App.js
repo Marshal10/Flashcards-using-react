@@ -44,12 +44,16 @@ function FlashCards() {
   return (
     <div className="flashcards">
       {questions.map((question) => (
-        <Card question={question} />
+        <Card question={question} key={question.id} />
       ))}
     </div>
   );
 }
 
 function Card({ question }) {
-  return <h1>{question.question}</h1>;
+  return (
+    <div>
+      <p>{question.question}</p>
+    </div>
+  );
 }
