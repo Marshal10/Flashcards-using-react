@@ -43,15 +43,13 @@ export default function App() {
 function FlashCards() {
   return (
     <div className="flashcards">
-      <div>
-        <p>What language is React based on?</p>
-      </div>
-      <div>
-        <p>What language is React based on?</p>
-      </div>
-      <div>
-        <p>What language is React based on?</p>
-      </div>
+      {questions.map((question) => (
+        <Card question={question} />
+      ))}
     </div>
   );
+}
+
+function Card({ question }) {
+  return <h1>{question.question}</h1>;
 }
