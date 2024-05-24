@@ -43,25 +43,23 @@ export default function App() {
 }
 
 function FlashCards() {
+  const [selectedID, setSelectedID] = useState(null);
+  function toggleSelected(id) {
+    setSelectedID(id !== selectedID ? id : null);
+  }
   return (
     <div className="flashcards">
       {questions.map((question) => (
-        <Card question={question} key={question.id} />
+        <div
+          key={question.id}
+          className={question.id === selectedID ? "selected" : ""}
+          onClick={() => toggleSelected(question.id)}
+        >
+          <p>
+            {question.id === selectedID ? question.answer : question.question}
+          </p>
+        </div>
       ))}
-    </div>
-  );
-}
-
-function Card({ question }) {
-  const [selected, setSelected] = useState(false);
-
-  function toggleSelected() {
-    setSelected((s) => (s = !s));
-  }
-
-  return (
-    <div className={selected ? "selected" : ""} onClick={toggleSelected}>
-      <p>{selected ? question.answer : question.question}</p>
     </div>
   );
 }
