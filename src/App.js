@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const questions = [
   {
     id: 3457,
@@ -51,9 +53,15 @@ function FlashCards() {
 }
 
 function Card({ question }) {
+  const [selected, setSelected] = useState(false);
+
+  function toggleSelected() {
+    setSelected((s) => (s = !s));
+  }
+
   return (
-    <div>
-      <p>{question.question}</p>
+    <div className={selected ? "selected" : ""} onClick={toggleSelected}>
+      <p>{selected ? question.answer : question.question}</p>
     </div>
   );
 }
