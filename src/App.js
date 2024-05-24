@@ -35,7 +35,23 @@ const questions = [
 export default function App() {
   return (
     <div className="App">
-      <h1>Hello React</h1>
+      <FlashCards />
+    </div>
+  );
+}
+
+function FlashCards() {
+  return (
+    <div className="flashcards">
+      <div>
+        <p>What language is React based on?</p>
+      </div>
+      <div>
+        <p>What language is React based on?</p>
+      </div>
+      <div>
+        <p>What language is React based on?</p>
+      </div>
     </div>
   );
 }
